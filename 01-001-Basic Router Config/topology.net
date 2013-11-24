@@ -1,0 +1,60 @@
+autostart = False
+version = 0.8.6
+[127.0.0.1:7200]
+    workingdir = working
+    udp = 10001
+    [[2691]]
+        image = /Users/sdejongh/GNS3/Images/c2691-advipservicesk9-mz.124-15.T12.bin.unpacked
+        ram = 256
+        idlepc = 0x60b85610
+        sparsemem = True
+        ghostios = True
+    [[ETHSW SW1]]
+        1 = access 1 R1 f0/0
+        2 = access 1 NIO_udp:30000:127.0.0.1:20000
+        x = -138.5
+        y = -19.0
+        z = 1.0
+    [[ROUTER R1]]
+        model = 2691
+        console = 2101
+        aux = 2501
+        cnfg = configs/R1.cfg
+        f0/0 = SW1 1
+        x = -271.0
+        y = -27.0
+        z = 1.0
+[GNS3-DATA]
+    configs = configs
+    workdir = working
+    m11 = 1.41421356237
+    m22 = 1.41421356237
+    [[NOTE 1]]
+        text = "Configuration à réaliser:\n- Hostname: R1\n- Console:\n    - Authentification par mot de passe: cisco\n    - Affichage synchrone\n    - Time-out de session de 5mins 30secs\n- Mot de passe mode privilégié: fullpower\n- Interface fastEthernet 0/0:\n    - Adresse: 10.0.0.1/24\n    - Activer l'interface\n\nVérifier la communication de base entre le PC et le routeur"
+        x = -260.0
+        y = -219.0
+        z = 3.0
+    [[NOTE 2]]
+        text = "01-001 - BASIC ROUTER CONFIG"
+        x = -223.0
+        y = -254.0
+        font = "Helvetica,14,-1,5,75,0,0,0,0,0"
+    [[NOTE 3]]
+        text = "10.0.0.10/24"
+        x = -17.0
+        y = 30.0
+    [[Cloud VPCS1]]
+        symbol = Host
+        x = -18.5
+        y = -31.5
+        z = 1.0
+        connections = SW1:2:nio_udp:30000:127.0.0.1:20000
+    [[SHAPE 1]]
+        type = rectangle
+        x = -269.0
+        y = -228.0
+        width = 306.0
+        height = 148.0
+        fill_color = "#bfbfbf"
+        border_width = 1
+        border_style = 2
