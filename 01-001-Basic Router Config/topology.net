@@ -4,7 +4,7 @@ version = 0.8.6
     workingdir = working
     udp = 10001
     [[2691]]
-        image = /Users/sdejongh/GNS3/Images/c2691-advipservicesk9-mz.124-15.T12.bin.unpacked
+        image = c2691-advipservicesk9-mz.124-15.T12.bin.unpacked
         ram = 256
         idlepc = 0x60b85610
         sparsemem = True
